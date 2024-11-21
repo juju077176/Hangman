@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"plage/game"
+	"github.com/juju077176/Hangman/game"
 )
 
 func main() {

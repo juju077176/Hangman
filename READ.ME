@@ -1,0 +1,80 @@
+Hangman (Jeu du Pendu)
+Bienvenue dans le jeu Hangman ! Ce projet est une implémentation classique du jeu du pendu en Go. Le but est de deviner un mot avant d épuiser vos 10 essais, avec des options de sauvegarde et de reprise.
+
+Fonctionnalités:
+
+10 essais maximum : Le joueur perd une vie à chaque mauvaise lettre, et deux vies pour un mot incorrect.
+Première lettre révélée : La première lettre du mot est automatiquement révélée, ainsi que toutes ses occurrences.
+Sauvegarde et reprise : Sauvegardez votre progression à tout moment en tapant STOP et reprenez là où vous vous êtes arrêté avec l option --startWith save.txt.
+Visualisation du pendu : Une représentation visuelle du pendu qui évolue au fur et à mesure des erreurs.
+Interface en ligne de commande : Facile à utiliser et rapide à configurer.
+Prérequis
+Go : Version 1.20 ou ultérieure.
+Un fichier words.txt contenant une liste de mots à deviner, un mot par ligne.
+
+Installation:
+- Installez les dépendances et initialisez le module Go :
+- Copier le code
+go mod tidy
+Vérifiez que le fichier words.txt est présent dans le répertoire du projet avec les mots que vous souhaitez utiliser.
+
+Lancer le Jeu
+Démarrer une Nouvelle Partie
+Pour démarrer une nouvelle partie :
+
+Copier le code
+go run main.go
+Reprendre une Partie Sauvegardée
+Si vous avez sauvegardé une partie précédemment, vous pouvez la reprendre en utilisant l option --startWith :
+
+Copier le code
+go run main.go
+
+Règles du Jeu:
+Objectif : Devinez le mot lettre par lettre avant d épuiser vos 10 essais.
+Affichage : Le mot à deviner est représenté par des underscores _. Chaque lettre devinée correctement remplace les underscores correspondants.
+Tentatives incorrectes :
+Chaque lettre incorrecte retire 1 essai.
+Une tentative incorrecte avec un mot entier retire 2 essais.
+Sauvegarde : Tapez STOP pour sauvegarder votre progression et quitter.
+Victoire : Si vous devinez toutes les lettres, vous gagnez !
+Défaite : Si vous épuisez vos 10 essais, le mot est révélé et la partie se termine.
+Exemple d Utilisation
+Début d une Partie
+yaml
+Copier le code
+Mot à deviner : c _ _ _ _
+
+Il vous reste 10 essais. Tapez une lettre, un mot complet ou STOP pour sauvegarder :
+Perdre une Vie
+yaml
+Copier le code
+Mot à deviner : c _ _ _ _
+Mauvaise réponse. Vous perdez 1 vie.
+
+Il vous reste 9 essais. Tapez une lettre, un mot complet ou STOP pour sauvegarder :
+Victoire
+r
+Copier le code
+Mot à deviner : c h a t
+Félicitations ! Vous avez deviné le mot : chat
+Structure du Projet
+Le code est organisé de manière modulaire :
+
+main.go : Point d entrée principal du jeu. Gère les arguments et démarre une nouvelle partie ou reprend une sauvegarde.
+game/ : Contient les fonctions principales du jeu :
+playhangman.go : Gère le gameplay principal.
+savegame.go : Implémente la sauvegarde et la reprise des parties.
+display.go : Affiche le pendu et l état du mot.
+Personnalisation
+Ajouter vos propres mots : Ajoutez ou modifiez les mots dans words.txt pour personnaliser les mots à deviner.
+Modifier les vies : Vous pouvez ajuster le nombre d essais restants en modifiant la variable remainingTries dans startNewGame.
+Améliorations Futures
+Ajout d une option pour choisir la difficulté (facile, normal, difficile).
+Mode multijoueur pour jouer avec des amis.
+Interface graphique.
+Contribution
+Les contributions sont les bienvenues ! Si vous avez des idées ou des corrections à proposer, n hésitez pas à ouvrir une issue ou à soumettre une pull request.
+
+Licence
+Ce projet est sous licence MIT. Consultez le fichier LICENSE pour plus d informations.

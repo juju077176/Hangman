@@ -1,1 +1,0 @@
-{"word":"bureau","guessed_letters":{"98":true},"remaining_tries":10}
